@@ -1,9 +1,7 @@
-import { Avatar, Button, Container } from "@mui/material";
+import { Avatar, Button, Container, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router";
 import Produto from "../components/Produto";
-
-
 
 function App() {
 
@@ -68,7 +66,7 @@ function App() {
 
     return (
         <>
-            <Container sx={{ display: "flex", gap: "2rem", flexWrap: "wrap" }} >
+            <Grid container sx={{ padding: 4, flexWrap: "wrap", gap: 3, justifyContent: "center"}} >
                 { erro && ( <span>{erro}</span>)}
                 { produtos && (
                     produtos.map( (produto, index ) => (
@@ -78,15 +76,12 @@ function App() {
                             titulo={produto.titulo}
                             imagem={produto.imagem}
                             descricao={produto.descricao}
-                            categoria={produto.categoria}
-                            ano={produto.ano}
-                            duracao={produto.duracao}
                             excluir={ (e) => Excluir( e, produto._id ) }
                         />
                     ) )
                 )}
                 
-            </Container>
+            </Grid>
         </>
         
     );
